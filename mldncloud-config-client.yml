@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: mldncloud-config-client                  # 定义微服务名称
+server:
+  port: 8101                                      # 服务端口
+eureka:
+  client:                                         # 客户端进行Eureka注册的配置
+    service-url:                                  # 定义Eureka服务地址
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+  instance:
+    instance-id: config-client.com                    # 显示主机名称
+---
+spring:
+  profiles: product
+  application:
+    name: mldncloud-config-client                  # 定义微服务名称
+server:
+  port: 8102                                      # 服务端口
+eureka:
+  client:                                         # 客户端进行Eureka注册的配置
+    service-url:                                  # 定义Eureka服务地址
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+  instance:
+    instance-id: config-client.com                    # 显示主机名称
+
